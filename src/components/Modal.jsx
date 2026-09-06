@@ -20,11 +20,11 @@ export default function Modal({ onClose, onAdd }) {
         </h3>
 
         <form onSubmit={submit}>
-          <label>Nome do produto</label>
-          <input value={titulo} onChange={(e) => setTitulo(e.target.value)} />
+          <label htmlFor="titulo">Nome do produto</label>
+          <input id="titulo" value={titulo} onChange={(e) => setTitulo(e.target.value)} required />
 
-          <label>Link</label>
-          <input value={link} onChange={(e) => setLink(e.target.value)} />
+          <label htmlFor="link">Link</label>
+          <input id="link" value={link} onChange={(e) => setLink(e.target.value)} />
 
           <button>Adicionar</button>
         </form>

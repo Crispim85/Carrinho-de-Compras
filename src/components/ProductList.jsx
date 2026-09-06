@@ -1,3 +1,4 @@
+import { SortableContext, rectSortingStrategy } from "@dnd-kit/sortable";
 import ProductItem from "./ProductItem";
 
 export default function ProductList({ produtos, onDelete, onNovo }) {
@@ -9,13 +10,15 @@ export default function ProductList({ produtos, onDelete, onNovo }) {
       </h2>
 
       <ul>
-        {produtos.map((produto) => (
-          <ProductItem
-            key={produto.id}
-            produto={produto}
-            onDelete={onDelete}
-          />
-        ))}
+        <SortableContext items={produtos.map(p => p.id)} strategy={rectSortingStrategy}>
+          {produtos.map((produto) => (
+            <ProductItem
+              key={produto.id}
+              produto={produto}
+              onDelete={onDelete}
+            />
+          ))}
+        </SortableContext>
       </ul>
     </section>
   );
